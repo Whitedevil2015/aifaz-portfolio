@@ -4,327 +4,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="AIFAZ LUXE - Premium Tech & Lifestyle Accessories. Elevate your everyday carry with our curated collection.">
-    <title>AIFAZ LUXE | Premium Dropshipping Store</title>
-
+    <meta name="description" content="Aifaz Portal - Islamic Companion & Premium Store">
+    <title>Aifaz Islamic Portal</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">AIFAZ<span class="highlight">LUXE</span></a>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-kaaba"></i>
+                <span>Aifaz</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#featured">Products</a></li>
-                <li><a href="#collections">Collections</a></li>
-                <li><a href="#support">Support</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#" class="cart-icon" id="cart-toggle">
+                <li class="active" data-tab="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-tab="store">
                     <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">0</span>
-                </a>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                    <span>Store</span>
+                </li>
+                <li data-tab="quran">
+                    <i class="fas fa-book-quran"></i>
+                    <span>Quran</span>
+                </li>
+                <li data-tab="prayer-times">
+                    <i class="fas fa-clock"></i>
+                    <span>Prayer Times</span>
+                </li>
+                <li data-tab="names">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <span>99 Names</span>
+                </li>
+                <li data-tab="tasbih">
+                    <i class="fas fa-fingerprint"></i>
+                    <span>Tasbih</span>
+                </li>
+                <li data-tab="media">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Media</span>
+                </li>
+                <li data-tab="profile">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Profile</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>&copy; 2026 Aifaz Portal</p>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <header id="home" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <span class="badge">Ramadan Exclusive Collection</span>
-                <div id="quran-quote" class="quote-container">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="quote-text"></p>
-                    <p class="quote-reference"></p>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="date-display">
+                    <span id="gregorian-date">Loading...</span>
+                    <!-- <span class="divider">|</span> -->
+                    <span id="hijri-date" class="highlight">Loading...</span>
                 </div>
-                <h1>The Essence of <br><span class="text-gradient">Faith & Style</span></h1>
-                <p>Discover a curated collection of premium Ouds, Islamic essentials, and modern apparel designed for
-                    those who value tradition and luxury.</p>
-                <div class="hero-btns">
-                    <a href="#featured" class="btn btn-primary">Explore Now</a>
-                    <a href="#collections" class="btn btn-secondary">Our Categories</a>
-                </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">10k+</span>
-                        <span class="stat-label">Orders Delivered</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Countries Served</span>
+                <div class="user-actions">
+                    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                    <div class="location-badge">
+                        <i class="fas fa-location-dot"></i> <span id="location-name">London, UK</span>
                     </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="product-showcase">
-                    <div class="glow-effect"></div>
-                    <img src="https://images.unsplash.com/photo-1594135056399-da38bc0143f0?q=80&w=1000&auto=format&fit=crop"
-                        alt="Premium Oud" class="main-product-img">
-                    <div class="floating-card card-1">
-                        <i class="fas fa-crown"></i>
-                        <span>Royal Collection</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-certificate"></i>
-                        <span>100% Authentic</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+            </header>
 
-    <section id="featured" class="featured">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Best Sellers</h2>
-                <p class="section-subtitle">Exquisite Selection for You</p>
-            </div>
-            <div class="product-grid">
-                <!-- Perfume -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop"
-                            alt="Premium Perfume">
-                        <span class="product-tag">Fragrance</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Royal Midnight Oud</h3>
-                        <p class="price">$89.00 <span class="old-price">$120.00</span></p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+            <!-- DASHBOARD VIEW -->
+            <div id="dashboard" class="view active-view">
+                <div class="hero-section">
+                    <div class="daily-verse">
+                        <span class="badge">Verse of the Day</span>
+                        <h2 class="arabic-text" id="daily-verse-arabic">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>
+                        <p class="translation" id="daily-verse-en">In the name of Allah, the Entirely Merciful, the
+                            Especially Merciful.</p>
+                        <p class="reference" id="daily-verse-ref">Surah Al-Fatiha [1:1]</p>
                     </div>
                 </div>
-                <!-- Islamic Product 1 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop"
-                            alt="Prayer Mat">
-                        <span class="product-tag">Islamic</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Velvet Memory Foam Musallah</h3>
-                        <p class="price">$45.00 <span class="old-price">$65.00</span></p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Clothing -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1515434126000-961d90ff09db?q=80&w=800&auto=format&fit=crop"
-                            alt="Classic Thobe">
-                        <span class="product-tag hot">Top Trend</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Signature Emirates Thobe</h3>
-                        <p class="price">$110.00</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Islamic Product 2 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1621319340428-144e04746654?q=80&w=800&auto=format&fit=crop"
-                            alt="Crystal Tasbih">
-                    </div>
-                    <div class="product-info">
-                        <h3>Amethyst 99-Bead Tasbih</h3>
-                        <p class="price">$29.00</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="collections" class="expertise">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Signature Collections</h2>
-                <p class="section-subtitle">Exclusivity in Every Detail</p>
-            </div>
-            <div class="expertise-grid">
-                <div class="expertise-card category-card">
-                    <div class="icon-box">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Luxury Fragrances</h3>
-                    <p>Exclusive Arabian Ouds and world-class perfumes.</p>
-                    <a href="#" class="shop-link">Explore Oud <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="expertise-card category-card">
-                    <div class="icon-box">
-                        <i class="fas fa-kaaba"></i>
-                    </div>
-                    <h3>Islamic Essentials</h3>
-                    <p>Prayer mats, decorative arts, and spiritual accessories.</p>
-                    <a href="#" class="shop-link">Shop Essentials <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="expertise-card category-card">
-                    <div class="icon-box">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Premium Apparel</h3>
-                    <p>Traditional thobes and contemporary modest fashion.</p>
-                    <a href="#" class="shop-link">Browse Fashion <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="expertise-card category-card">
-                    <div class="icon-box">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3>Gift Sets</h3>
-                    <p>Perfectly curated sets for weddings and celebrations.</p>
-                    <a href="#" class="shop-link">View Gifts <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Customer Stories</h2>
-                <p class="section-subtitle">What Our Community Says</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"The quality of the Oud I purchased is exceptional. It lasts for days and smells divine. Highly
-                        recommend AIFAZ LUXE!"</p>
-                    <div class="user-info">
-                        <img src="https://i.pravatar.cc/150?u=1" alt="User">
-                        <div>
-                            <h4>Ahmed Siddiqui</h4>
-                            <span>Verified Buyer</span>
+                <div class="dashboard-grid">
+                    <div class="card prayer-card">
+                        <h3>Next Prayer</h3>
+                        <div class="next-prayer-info">
+                            <span id="next-prayer-name">Fajr</span>
+                            <span id="next-prayer-time">04:30 AM</span>
+                        </div>
+                        <div class="countdown">
+                            <span>-</span><span id="time-remaining">00:00:00</span>
                         </div>
                     </div>
+
+                    <div class="card hadith-card">
+                        <h3>Hadith of the Day</h3>
+                        <p id="daily-hadith-text">"The best of you are those who learn the Quran and teach it."</p>
+                        <span id="daily-hadith-ref">Bukhari</span>
+                    </div>
+
+                    <div class="card dua-card">
+                        <h3>Daily Dua</h3>
+                        <p class="arabic-small" id="daily-dua-arabic">رَبِّ زِدْنِي عِلْمًا</p>
+                        <p class="translation-small">"My Lord, increase me in knowledge."</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"I ordered a prayer mat and it is so soft. The memory foam really helps during long prayers. Best
-                        purchase ever."</p>
-                    <div class="user-info">
-                        <img src="https://i.pravatar.cc/150?u=2" alt="User">
-                        <div>
-                            <h4>Fatima K.</h4>
-                            <span>Verified Buyer</span>
+            </div>
+
+            <!-- STORE VIEW (Merged from Portfolio/Store) -->
+            <div id="store" class="view">
+                <div class="store-hero">
+                    <div class="store-hero-content">
+                        <span class="badge">Ramadan Exclusive</span>
+                        <h1>The Essence of <br><span class="text-gradient">Faith & Style</span></h1>
+                        <p>Discover our curated collection of premium Ouds, Islamic essentials, and modern apparel.</p>
+                        <button class="btn-primary">Shop Collection</button>
+                    </div>
+                    <div class="store-hero-image">
+                        <img src="https://images.unsplash.com/photo-1594135056399-da38bc0143f0?q=80&w=1000&auto=format&fit=crop"
+                            alt="Oud">
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>Best Sellers</h2>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Perfume -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop"
+                                alt="Perfume">
+                            <span class="product-tag">Fragrance</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Royal Midnight Oud</h3>
+                            <p class="price">$89.00</p>
+                            <button class="btn-secondary full-width">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Prayer Mat -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop"
+                                alt="Mat">
+                            <span class="product-tag">Islamic</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Velvet Memory Musallah</h3>
+                            <p class="price">$45.00</p>
+                            <button class="btn-secondary full-width">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Tasbih -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1621319340428-144e04746654?q=80&w=800&auto=format&fit=crop"
+                                alt="Tasbih">
+                        </div>
+                        <div class="product-info">
+                            <h3>Amethyst 99-Bead Tasbih</h3>
+                            <p class="price">$29.00</p>
+                            <button class="btn-secondary full-width">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="trust-bar">
-        <div class="container trust-container">
-            <div class="trust-item">
-                <i class="fas fa-plane-up"></i>
-                <span>Fast Global Delivery</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-lock"></i>
-                <span>Encrypted Payments</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-heart"></i>
-                <span>Community Choice</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-star"></i>
-                <span>4.9/5 Rating</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="support" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Track & Support</h2>
-                <p class="section-subtitle">We're Here to Help</p>
-            </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-headset"></i>
-                        <div>
-                            <h4>Support Center</h4>
-                            <p>support@aifazluxe.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Headquarters</h4>
-                            <p>Global fulfillment across 12 countries.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <p>@aifaz_luxe</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+            <!-- QURAN VIEW -->
+            <div id="quran" class="view">
+                <div class="section-header">
+                    <h1>The Noble Quran</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="quran-search" placeholder="Search Surah...">
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="order-id">Order ID (optional)</label>
-                        <input type="text" id="order-id" placeholder="#LUXE12345">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">How can we help?</label>
-                        <textarea id="message" rows="5" placeholder="Inquiry about product or order tracking..."
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-top">
-                <div class="footer-logo">AIFAZ<span class="highlight">LUXE</span></div>
-                <p>Curating the finest perfumes, Islamic essentials, and apparel for the discerning individual.</p>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 AIFAZ LUXE. All rights reserved.</p>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                <div class="surah-grid" id="surah-list">
+                    <!-- Surahs populated here -->
+                </div>
+                <div id="surah-detail" class="hidden">
+                    <button class="btn-back" id="back-to-surahs"><i class="fas fa-arrow-left"></i> Back</button>
+                    <div id="surah-content"></div>
                 </div>
             </div>
-        </div>
-    </footer>
 
+            <!-- PRAYER TIMES VIEW -->
+            <div id="prayer-times" class="view">
+                <h1>Prayer Times</h1>
+                <div class="prayer-times-list" id="prayer-times-container">
+                    <!-- Prayer times populated here -->
+                </div>
+            </div>
+
+            <!-- NAMES VIEW -->
+            <div id="names" class="view">
+                <h1>99 Names of Allah</h1>
+                <div class="names-grid" id="names-grid">
+                    <!-- Names populated here -->
+                </div>
+            </div>
+
+            <!-- TASBIH VIEW -->
+            <div id="tasbih" class="view">
+                <h1>Digital Tasbih</h1>
+                <div class="tasbih-container">
+                    <div class="tasbih-display">
+                        <span id="tasbih-count">0</span>
+                    </div>
+                    <div class="tasbih-controls">
+                        <button id="tasbih-reset" class="btn-secondary">Reset</button>
+                        <button id="tasbih-count-btn" class="btn-primary-large">Count</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEDIA VIEW -->
+            <div id="media" class="view">
+                <h1>My Library</h1>
+
+                <div class="media-section">
+                    <h3><i class="fas fa-music"></i> Audio Tracks</h3>
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-music"></i></div>
+                            <div class="media-info">
+                                <h4>Succession Piano Suite</h4>
+                                <audio controls
+                                    src="assets/Succession%20(HBO%20Series)%20-%20Epic%20Piano%20Suite.mp3"></audio>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-music"></i></div>
+                            <div class="media-info">
+                                <h4>Frozen - Let It Go (Piano)</h4>
+                                <audio controls src="assets/Frozen%20-%20Let%20It%20Go%20(Piano%20Version).mp3"></audio>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-play"></i></div>
+                            <div class="media-info">
+                                <h4>Heeriye</h4>
+                                <audio controls src="assets/Heeriye_320(PagaiWorld.com).mp3"></audio>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="media-info">
+                                <h4>Lost Sky - Fearless</h4>
+                                <audio controls
+                                    src="assets/Lost%20Sky%20-%20Fearless%20pt.II%20(feat.%20Chris%20Linton)%20%5BNCS%20Release%5D.mp3"></audio>
+                            </div>
+                        </div>
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-volume-up"></i></div>
+                            <div class="media-info">
+                                <h4>Sword Sound Effect</h4>
+                                <audio controls src="assets/sword-slashing-game-sound-effect-2-379229.mp3"></audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-section">
+                    <h3><i class="fas fa-video"></i> Videos</h3>
+                    <div class="media-grid">
+                        <div class="media-card video-card">
+                            <video controls src="assets/videoplayback.webm"></video>
+                            <h4>Video Playback</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-section">
+                    <h3><i class="fas fa-file-pdf"></i> Documents</h3>
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <div class="media-icon"><i class="fas fa-file-alt"></i></div>
+                            <div class="media-info">
+                                <h4>New Document 78</h4>
+                                <a href="assets/NEW-78.DOC%20(1).pdf" target="_blank" class="btn-secondary">View PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFILE VIEW (Merged Portfolio) -->
+            <div id="profile" class="view">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="profile.png" alt="Aifaz" class="profile-img">
+                        <div class="profile-title">
+                            <h1>Aifaz</h1>
+                            <span class="role-badge">Senior Customer Support Associate</span>
+                        </div>
+                    </div>
+                    <div class="profile-body">
+                        <h3>About Me</h3>
+                        <p>Dedicated and experienced Customer Support professional with a proven track record of
+                            increasing customer satisfaction and resolving complex issues. Specialize in e-commerce and
+                            SaaS support.</p>
+
+                        <div class="skills-section">
+                            <h3>Core Skills</h3>
+                            <div class="skills-tags">
+                                <span>Ticket Management</span>
+                                <span>CRMs (Zendesk, Salesforce)</span>
+                                <span>Conflict Resolution</span>
+                                <span>Technical Troubleshooting</span>
+                                <span>Team Leadership</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-actions">
+                            <button class="btn-primary">Download Resume</button>
+                            <button class="btn-secondary">Contact Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
     <script src="script.js"></script>
 </body>
 
