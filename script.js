@@ -374,11 +374,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
             if (data.code === 200) {
                 grid.innerHTML = data.data.map((name, i) => `
-                    <div class="card-glass reveal-bottom" style="transition-delay: ${i * 0.05}s; text-align: center; padding: 25px;">
-                        <span style="color: var(--gold); font-size: 0.8rem; font-weight: 700; opacity: 0.6;">${name.number}</span>
-                        <h2 style="font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--gold); margin: 10px 0;">${name.name}</h2>
-                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 5px;">${name.transliteration}</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.7; color: var(--accent); font-weight: 600;">${name.en.meaning}</p>
+                    <div class="card-glass asma-card reveal-bottom" style="transition-delay: ${i * 0.05}s;">
+                        <span class="asma-number">${name.number}</span>
+                        <div class="name-container-3d">
+                            <h2 class="name-3d">${name.name}</h2>
+                        </div>
+                        <h3 class="trans-3d">${name.transliteration}</h3>
+                        <p class="meaning-3d">${name.en.meaning}</p>
                     </div>
                 `).join('');
                 document.querySelectorAll('#asma-grid .reveal-bottom').forEach(el => revealObserver.observe(el));
