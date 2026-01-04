@@ -6,28 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aifaz Portal | The Authentic Collections</title>
     <link rel="stylesheet" href="style.css?v=3.3">
+    <meta name="description" content="Aifaz - The Ultimate Crystal Glass Islamic Portal & Premium Store">
+    <title>Aifaz | Crystal Glass Portal</title>
+    <link rel="stylesheet" href="style.css?v=3.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Cinzel:wght@400;700&family=Amiri:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <!-- Dynamic Background Slider -->
+    <div class="masjid-bg-container" id="mosque-slider">
+        <!-- Slides injected via JS -->
+    </div>
+    <div class="bg-overlay"></div>
 
-    <!-- Simple Reference Header -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h1>AIFAZ PORTAL</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#quran">Quran</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
+    <!-- Portal Entry Overlay -->
+    <div id="portal-overlay"
+        style="position: fixed; top:0; left:0; width:100%; height:100%; background:#00150f; z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+        <div class="glass-container"
+            style="padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); max-width: 90%;">
+            <i class="fa-solid fa-kaaba fa-4x" style="color: var(--gold); margin-bottom: 30px;"></i>
+            <h2 style="font-family:'Cinzel', serif; color: var(--gold); margin-bottom: 20px;">Divine Inspiration</h2>
+            <blockquote id="daily-quote"
+                style="font-family:'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: white;">
+                "Indeed, with hardship [will be] ease."</blockquote>
+            <p id="quote-author" style="color: var(--gold); margin-top:15px;">- Surah Ash-Sharh [94:6]</p>
+            <button id="enter-btn" class="play-btn"
+                style="width:auto; padding: 0 40px; height: 50px; margin-top: 40px; border-radius: 50px; font-weight:700;">Enter
+                Portal</button>
         </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span
+                style="font-family:'Cinzel', serif; font-weight:700; color:var(--gold); letter-spacing:2px; font-size: 1.2rem;">AIFAZ</span>
+        </div>
+        <div class="lang-selector">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#quran">Quran</a></li>
+            <li><a href="#prayer">Prayer</a></li>
+        </ul>
     </nav>
 
 
