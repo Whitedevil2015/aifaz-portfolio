@@ -1,22 +1,39 @@
-# Aifaz Portal - Unified Digital Space
+# Aifaz Islamic Portal & Luxe Store 🕌✨
 
-The central hub combining a spiritual Islamic dashboard, a premium dropshipping store, a professional portfolio, and a personal media library.
+**Legacy Meets Luxury** v3.0 (Crystal Glass Edition)
 
-## Integrated Modules
+A unified single-page application combining a spiritual Islamic companion with a premium lifestyle store.
 
-### 1. Islamic Dashboard
-- **Features**: Verse of the Day (Quran), Prayer Times, 99 Names of Allah, Hadith, Digital Tasbih.
+## 🌟 Features
 
-### 2. Aifaz Luxe Store
-- **Concept**: Premium Dropshipping for Ouds, Islamic Essentials, and Modest Fashion.
+### 🕌 Islamic Sanctuary
+*   **Divine Inspiration**: Daily Quranic quotes and dynamic Masjid wallpapers.
+*   **The Noble Quran**: Full 114 Surah reader with Mishary Alafasy audio and translations.
+*   **Prayer Times**: Geo-located prayer times (Fajr, Dhuhr, Asr, Maghrib, Isha).
+*   **Hijri Calendar**: Integrated lunar calendar for tracking Islamic dates.
+*   **99 Names**: Interactive grid of Asma-ul-Husna with meanings.
+*   **Tasbih**: Digital counter for Dhikr.
 
-### 3. Professional Profile
-- **Role**: Senior Customer Support Associate.
-- **Assets**: Resume, Contact details.
+### 🛍️ Aifaz Luxe Store
+*   **Curated Collection**: Premium Ouds, Prayer Mats, and Tasbihs.
+*   **Seamless UI**: Modern "Add to Cart" interactions and product showcases.
 
-### 4. Media Library
-- **Features**: Integrated Audio/Video players for local assets.
-- **Content**: Music tracks (Succession, Frozen, etc.) and Videos.
+### 🎧 Media Library
+*   **Audio Suite**: Custom playlist including Succession Theme, Frozen Piano, and Nasheeds.
+*   **Video Player**: Integrated video playback support.
 
-## Usage
-Open `index.html`. The "Media" tab in the sidebar allows access to local files stored in the `assets/` folder.
+### 👨‍💻 Professional Profile
+*   **Senior Customer Support Associate**: Interactive resume and skills showcase.
+*   **Contact Integration**: Direct email and resume download links.
+
+## 🛠️ Tech Stack
+*   **Frontend**: HTML5, Vanilla JavaScript, CSS3 (Glassmorphism Variables).
+*   **APIs**: Aladhan (Times/Calendar), Al Quran Cloud (Text/Audio).
+*   **Deployment**: Vercel (Auto-deployed from `main`).
+*   **Design**: "Crystal Glass" dark theme with Gold (#F59E0B) and Emerald (#10B981) accents.
+
+## 🚀 Deployment
+This project is configured for Vercel. Pushing to `main` triggers a live update.
+
+## 📄 License
+© 2026 Aifaz Portal. All Rights Reserved.
