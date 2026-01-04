@@ -159,6 +159,73 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // --- 3D Kaba Model (Three.js) ---
+    function initThreeJS() {
+        const container = document.getElementById('canvas-container');
+        if (!container) return;
+
+        // Scene
+        const scene = new THREE.Scene();
+
+        // Camera
+        const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100); // aspect ratio 1 for square container
+        camera.position.z = 5;
+
+        // Renderer
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(400, 400); // Matches CSS size roughly
+        container.insertBefore(renderer.domElement, container.firstChild);
+
+        // Kaba Geometry (Base Cube)
+        const geometry = new THREE.BoxGeometry(2, 2.2, 2);
+        const material = new THREE.MeshStandardMaterial({
+            color: 0x111111, // Very dark grey/black
+            roughness: 0.8
+        });
+        const kaba = new THREE.Mesh(geometry, material);
+
+        // Gold Stripe Geometry
+        const stripeGeo = new THREE.BoxGeometry(2.05, 0.4, 2.05); // Slightly larger
+        const stripeMat = new THREE.MeshStandardMaterial({
+            color: 0xD4AF37, // Gold
+            metalness: 0.8,
+            roughness: 0.2
+        });
+        const stripe = new THREE.Mesh(stripeGeo, stripeMat);
+        stripe.position.y = 0.5; // Upper part of Kaba
+
+        // Group them
+        const kabaGroup = new THREE.Group();
+        kabaGroup.add(kaba);
+        kabaGroup.add(stripe);
+        scene.add(kabaGroup);
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffd700, 0.8);
+        dirLight.position.set(5, 5, 5);
+        scene.add(dirLight);
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            kabaGroup.rotation.y += 0.005; // Slow rotation
+            kabaGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.05; // Gentle float tilt
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    }
+
+    // Initialize 3D only if element exists
+    if (document.getElementById('canvas-container')) {
+        initThreeJS();
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             // Visual toggle
