@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aifaz Portal | The Authentic Collections</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -30,91 +30,108 @@
         </div>
     </nav>
 
-    <!-- Search Hero -->
-    <section class="search-hero">
-        <input type="text" class="search-input" placeholder="Search in Quran and Hadith (e.g. 'Patience', 'Fatiha')...">
-    </section>
 
-    <!-- Main Content -->
-    <main class="container">
-
-        <!-- Collections Section -->
-        <section id="collections">
-            <h2 class="section-title">The Collections</h2>
-            <div class="collections-grid">
-
-                <!-- Quran Card -->
-                <div class="collection-card" onclick="openQuranReader()">
-                    <div class="collection-header">
-                        <span class="english-title">The Noble Quran</span>
-                        <span class="arabic-title">القرآن الكريم</span>
-                    </div>
-                    <div class="collection-meta">
-                        <span>114 Surahs</span>
-                        <span>Complete Recitation</span>
-                    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="current-date-box reveal-bottom">
+                <div class="date-hijri" id="hero-hijri-date">Loading Hijri...</div>
+                <div class="date-gregorian" id="hero-greg-date">Loading date...</div>
+            </div>
+            <div class="hero-glass-card glass-container reveal-bottom">
+                <span style="color: var(--gold); letter-spacing:4px; font-size:0.7rem; font-weight:700;">DIGITAL
+                    SANCTUARY v3.2</span>
+                <h1>Seek Divine Guidance</h1>
+                <p>An immersive crystal-glass experience for the modern seeker. Access the Holy Quran with audio,
+                    explore extensive Hadith volumes, and stay connected with your daily prayers.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                    <a href="#asma" class="play-btn"
+                        style="width:auto; padding:0 30px; height:50px; text-decoration:none; border-radius:50px; font-weight:700;">99
+                        Names</a>
                 </div>
-
-                <!-- 40 Hadith Card -->
-                <div class="collection-card" onclick="openHadithCollection('nawawi')">
-                    <div class="collection-header">
-                        <span class="english-title">40 Hadith Nawawi</span>
-                        <span class="arabic-title">الأربعون النووية</span>
-                    </div>
-                    <div class="collection-meta">
-                        <span>42 Hadiths</span>
-                        <span>Imam An-Nawawi</span>
-                    </div>
-                </div>
-
-                <!-- Bukhari (Placeholder) -->
-                <div class="collection-card">
-                    <div class="collection-header">
-                        <span class="english-title">Sahih al-Bukhari</span>
-                        <span class="arabic-title">صحيح البخاري</span>
-                    </div>
-                    <div class="collection-meta">
-                        <span>Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- Muslim (Placeholder) -->
-                <div class="collection-card">
-                    <div class="collection-header">
-                        <span class="english-title">Sahih Muslim</span>
-                        <span class="arabic-title">صحيح مسلم</span>
-                    </div>
-                    <div class="collection-meta">
-                        <span>Coming Soon</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Dynamic Reading Section (Injected via JS) -->
-        <section id="reader-view" style="display:none; margin-top: 50px;">
-            <div
-                style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ddd; padding-bottom:15px; margin-bottom:20px;">
-                <h2 class="section-title" id="reader-heading" style="margin:0; border:none;">Reader</h2>
-                <button onclick="closeReader()"
-                    style="background:#eee; border:none; padding:10px 20px; cursor:pointer; border-radius:4px;">&times;
-                    Close</button>
-            </div>
+        <!-- Main Content -->
+        <main class="container">
 
-            <div id="reader-content" class="reader-container">
-                <!-- Content goes here -->
-            </div>
-        </section>
+            <!-- Collections Section -->
+            <section id="collections">
+                <h2 class="section-title">The Collections</h2>
+                <div class="collections-grid">
 
-    </main>
+                    <!-- Quran Card -->
+                    <div class="collection-card" onclick="openQuranReader()">
+                        <div class="collection-header">
+                            <span class="english-title">The Noble Quran</span>
+                            <span class="arabic-title">القرآن الكريم</span>
+                        </div>
+                        <div class="collection-meta">
+                            <span>114 Surahs</span>
+                            <span>Complete Recitation</span>
+                        </div>
+                    </div>
 
-    <footer
-        style="background:#f8f9fa; text-align:center; padding:40px; margin-top:50px; border-top:1px solid #e9ecef; color:#888; font-size:0.9rem;">
-        &copy; 2026 Aifaz Portal. Styled inspired by Sunnah.com
-    </footer>
+                    <!-- 40 Hadith Card -->
+                    <div class="collection-card" onclick="openHadithCollection('nawawi')">
+                        <div class="collection-header">
+                            <span class="english-title">40 Hadith Nawawi</span>
+                            <span class="arabic-title">الأربعون النووية</span>
+                        </div>
+                        <div class="collection-meta">
+                            <span>42 Hadiths</span>
+                            <span>Imam An-Nawawi</span>
+                        </div>
+                    </div>
 
-    <script src="script.js"></script>
+                    <!-- Bukhari (Placeholder) -->
+                    <div class="collection-card">
+                        <div class="collection-header">
+                            <span class="english-title">Sahih al-Bukhari</span>
+                            <span class="arabic-title">صحيح البخاري</span>
+                        </div>
+                        <div class="collection-meta">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Muslim (Placeholder) -->
+                    <div class="collection-card">
+                        <div class="collection-header">
+                            <span class="english-title">Sahih Muslim</span>
+                            <span class="arabic-title">صحيح مسلم</span>
+                        </div>
+                        <div class="collection-meta">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Dynamic Reading Section (Injected via JS) -->
+            <section id="reader-view" style="display:none; margin-top: 50px;">
+                <div
+                    style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ddd; padding-bottom:15px; margin-bottom:20px;">
+                    <h2 class="section-title" id="reader-heading" style="margin:0; border:none;">Reader</h2>
+                    <button onclick="closeReader()"
+                        style="background:#eee; border:none; padding:10px 20px; cursor:pointer; border-radius:4px;">&times;
+                        Close</button>
+                </div>
+
+                <div id="reader-content" class="reader-container">
+                    <!-- Content goes here -->
+                </div>
+            </section>
+
+        </main>
+
+        <footer
+            style="background:#f8f9fa; text-align:center; padding:40px; margin-top:50px; border-top:1px solid #e9ecef; color:#888; font-size:0.9rem;">
+            &copy; 2026 Aifaz Portal. Styled inspired by Sunnah.com
+        </footer>
+
+        <script src="script.js"></script>
 </body>
 
 </html>
