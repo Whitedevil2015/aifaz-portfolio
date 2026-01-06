@@ -33,9 +33,10 @@
             <a href="#" class="logo">AIFAZ<span class="highlight">ISLAMIC</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#prayer-times">Prayer & Times</a></li>
+                <li><a href="#quran-index">Quran & Names</a></li>
                 <li><a href="#featured">Shop</a></li>
                 <li><a href="#collections">Collections</a></li>
-                <li><a href="#about">Our Values</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="#" class="cart-icon" id="cart-toggle">
@@ -92,6 +93,82 @@
             </div>
         </div>
     </header>
+
+    <!-- Prayer Times Section -->
+    <section id="prayer-times" class="portal-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prayer & Reflection</h2>
+                <p class="section-subtitle">Establish Prayer for Remembrance</p>
+            </div>
+
+            <div class="location-controls">
+                <input type="text" id="city-input" placeholder="City (e.g. Mecca)">
+                <input type="text" id="country-input" placeholder="Country (e.g. Saudi Arabia)">
+                <input type="date" id="date-picker">
+                <button id="update-location-btn">Update Location</button>
+            </div>
+
+            <div id="location-display" style="text-align:center; margin-bottom: 2rem; color: var(--text-light);"></div>
+
+            <div class="prayer-grid">
+                <div class="prayer-card">
+                    <span class="prayer-name">Fajr</span>
+                    <span class="prayer-time" id="time-fajr">--:--</span>
+                </div>
+                <div class="prayer-card">
+                    <span class="prayer-name">Dhuhr</span>
+                    <span class="prayer-time" id="time-dhuhr">--:--</span>
+                </div>
+                <div class="prayer-card">
+                    <span class="prayer-name">Asr</span>
+                    <span class="prayer-time" id="time-asr">--:--</span>
+                </div>
+                <div class="prayer-card">
+                    <span class="prayer-name">Maghrib</span>
+                    <span class="prayer-time" id="time-maghrib">--:--</span>
+                </div>
+                <div class="prayer-card">
+                    <span class="prayer-name">Isha</span>
+                    <span class="prayer-time" id="time-isha">--:--</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align:center;">
+                <button id="play-azaan-btn" class="btn btn-secondary"><i class="fas fa-mosque"></i> Play Azaan
+                    (Makkah)</button>
+                <audio id="azaan-audio" src="https://www.islamcan.com/audio/adhan/azan2.mp3"></audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- 99 Names Section -->
+    <section id="asma-ul-husna" class="portal-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Asma-ul-Husna</h2>
+                <p class="section-subtitle">The 99 Beautiful Names of Allah</p>
+            </div>
+            <div id="asma-grid" class="asma-grid">
+                <!-- Names injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Index Section -->
+    <section id="quran-index" class="portal-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Noble Quran</h2>
+                <p class="section-subtitle">Guidance for Mankind</p>
+                <button id="open-quran-reader" class="btn btn-primary" style="margin-top: 1rem;">Open Full
+                    Reader</button>
+            </div>
+            <div id="surah-index-grid" class="surah-index-grid">
+                <!-- Surah List injected via JS -->
+            </div>
+        </div>
+    </section>
 
     <section id="featured" class="featured">
         <div class="container">
@@ -348,6 +425,47 @@
             </div>
         </div>
     </footer>
+
+    <!-- Quran Reader Modal -->
+    <div id="quran-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="reader-title" style="font-family:'Amiri'; font-size:1.5rem; color: var(--gold);">The Noble Quran
+                </h3>
+                <div class="reader-controls-center" style="display:flex; gap:10px;">
+                    <button class="lang-btn active" data-lang="en"
+                        style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">English</button>
+                    <button class="lang-btn" data-lang="ur"
+                        style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">Urdu</button>
+                </div>
+                <div class="audio-player-box">
+                    <span id="surah-info" style="font-size:0.8rem; color:var(--text-light);"></span>
+                    <div class="player-controls">
+                        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+                    </div>
+                    <audio id="quran-audio"></audio>
+                </div>
+                <button id="close-quran-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <aside class="surah-sidebar">
+                    <div class="tabs"
+                        style="display:flex; padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">
+                        <button id="tab-surah" class="active"
+                            style="flex:1; background:none; border:none; color:white; cursor:pointer; font-weight:bold;">Surahs</button>
+                    </div>
+                    <div id="surah-list-container" class="surah-list-container">
+                        <div id="surah-list"></div>
+                    </div>
+                </aside>
+                <main class="verse-view">
+                    <div id="quran-content">
+                        <!-- Verses go here -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

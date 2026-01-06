@@ -827,3 +827,391 @@ footer p {
 .value-card {
     will-change: transform, opacity;
 }
+/* --- Portal & Islamic Features Styles --- */
+
+/* Section Spacing */
+.portal-section {
+    padding: 100px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Prayer Times Section */
+#prayer-times {
+    background: linear-gradient(to bottom, #02120C, #062419);
+    text-align: center;
+}
+
+.location-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location-controls input, .location-controls button {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--text-dark);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+}
+
+.location-controls button {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.location-controls input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.prayer-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.prayer-name {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.prayer-time {
+    font-size: 1.8rem;
+    font-family: 'Amiri', serif;
+    color: var(--accent-color);
+    font-weight: 700;
+    display: block;
+}
+
+/* 99 Names Grid */
+#asma-ul-husna {
+    background: var(--bg-white);
+}
+
+.asma-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.asma-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.asma-card:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+    background: rgba(6, 36, 25, 0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.asma-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    opacity: 0.5;
+    border: 1px solid var(--text-light);
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.name-3d {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.trans-3d {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.meaning-3d {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* Surah Index */
+#quran-index {
+    background: var(--bg-light);
+}
+
+.surah-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+}
+
+.glass-container:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* Quran Modal (Reader) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 18, 12, 0.98);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    width: 95%;
+    height: 95%;
+    background: #020b08;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.modal-header {
+    height: 70px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: rgba(6, 36, 25, 0.5);
+}
+
+.modal-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.surah-sidebar {
+    width: 280px;
+    border-right: 1px solid rgba(212, 175, 55, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: block;
+}
+
+.surah-list-container {
+    padding: 1rem 0;
+}
+
+.surah-item {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 3px solid transparent;
+    color: var(--text-light);
+    transition: all 0.2s;
+}
+
+.surah-item:hover, .surah-item.active {
+    background: rgba(212, 175, 55, 0.1);
+    border-left-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+.surah-item span {
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.verse-view {
+    flex: 1;
+    padding: 2rem 4rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    background: radial-gradient(circle at center, rgba(6, 36, 25, 0.3), #020b08);
+}
+
+.verse-block {
+    background: rgba(255, 255, 255, 0.01);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.verse-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 0.5rem;
+}
+
+.verse-num {
+    background: var(--accent-color);
+    color: #000;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.arabic-txt {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    line-height: 2.2;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: right;
+    direction: rtl;
+}
+
+.translation-txt {
+    font-size: 1.1rem;
+    color: #ccc;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reflection-box {
+    margin-top: 1.5rem;
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.reflection-box textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.reflection-box button {
+    margin-top: 0.5rem;
+    background: var(--accent-color);
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Audio Player Box in Modal */
+.audio-player-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-controls button {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.player-controls button:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+#close-quran-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#close-quran-btn:hover {
+    color: #ef4444; 
+}
+
+/* Animations */
+.reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.reveal-bottom {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}

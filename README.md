@@ -1,4 +1,5 @@
 # Aifaz Islamic Portal & Luxe Store 🕌✨
+> **Last Deployment Trigger:** 2026-01-05 (Fix 404 Reset)
 
 **Legacy Meets Luxury** v3.0 (Crystal Glass Edition)
 
