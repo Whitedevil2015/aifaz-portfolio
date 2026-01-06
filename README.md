@@ -1,9 +1,9 @@
 # Aifaz Islamic Portal & Luxe Store 🕌✨
-> **Last Deployment Trigger:** 2026-01-05 (Fix 404 Reset)
+> **Last Deployment Trigger:** 2026-01-07 (v3.5 Islamic Portal Update)
 
-**Legacy Meets Luxury** v3.0 (Crystal Glass Edition)
+**Legacy Meets Luxury** v3.5 (Islamic Portal Edition)
 
-A unified single-page application combining a spiritual Islamic companion with a premium lifestyle store.
+A unified single-page application combining a spiritual Islamic companion with a premium lifestyle store, now featuring full Quran and Prayer Times.
 
 ## 🌟 Features
 
