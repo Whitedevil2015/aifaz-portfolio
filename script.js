@@ -250,10 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 updateAtmosphere(); // Force update immediately
 
-                if (locDisplay) locDisplay.innerHTML = `Currently viewing: <strong style="color:var(--gold);">${city}, ${country}</strong> | <span style="color:var(--accent)">${apiDate}</span>`;
+                if (locDisplay) locDisplay.innerHTML = `Currently viewing: <strong style="color:var(--text-main);">${city}, ${country}</strong> | <span style="color:var(--accent-color)">${apiDate}</span>`;
             }
-        } catch (e) { console.error("Prayer fetch failed", e); }
-        finally { if (updateLocBtn) updateLocBtn.textContent = 'Update View'; }
+        } catch (e) {
+            console.error("Prayer fetch failed", e);
+        } finally {
+            if (updateLocBtn) updateLocBtn.textContent = 'Update View';
+        }
     }
 
     updateLocBtn?.addEventListener('click', () => {
@@ -427,6 +430,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.loadSurah = async (num, name) => {
         currentSurah = num;
         readerTitle.textContent = `Surah ${name}`;
+
+        // Add skeleton state to daily verse if this is the daily surah (optional logic, but keeping safe)
+        const dailyAr = document.getElementById('daily-verse-ar');
+        const dailyEn = document.getElementById('daily-verse-en');
+        if (dailyAr && dailyEn && dailyAr.innerHTML === '') {
+            dailyAr.classList.add('skeleton', 'skeleton-block');
+            dailyEn.classList.add('skeleton', 'skeleton-text');
+        }
 
         // Update Active Class in Sidebar
         document.querySelectorAll('.surah-item').forEach(item => item.classList.remove('active'));
@@ -603,8 +614,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Header Update (Spiritual Dashboard)
             const headerTimer = document.getElementById('header-countdown');
             const headerName = document.getElementById('header-next-name');
-            if (headerTimer) headerTimer.textContent = timerStr;
-            if (headerName) headerName.textContent = next.name;
+            if (headerTimer) {
+                headerTimer.textContent = timerStr;
+                headerTimer.classList.remove('skeleton', 'skeleton-text');
+                headerTimer.style.width = ''; headerTimer.style.height = '';
+            }
+            if (headerName) {
+                headerName.textContent = next.name;
+                headerName.classList.remove('skeleton', 'skeleton-text');
+                headerName.style.width = '';
+            }
 
             // Legacy/Portal widgets (if present)
             const widgetTimer = document.getElementById('flight-countdown-widget');

@@ -58,20 +58,19 @@
             <span id="header-location">Mecca, SA</span>
         </div>
         <div class="prayer-countdown-native">
-            <div class="next-prayer-label">Next: <span id="header-next-name">Loading...</span></div>
-            <div class="next-prayer-timer" id="header-countdown">--:--:--</div>
+            <div class="next-prayer-label">Next: <span id="header-next-name" class="skeleton skeleton-text"
+                    style="width:50px;"></span></div>
+            <div class="next-prayer-timer skeleton skeleton-text" id="header-countdown"
+                style="width:80px; height:1.2rem;"></div>
         </div>
     </header>
 
     <main class="dashboard-container">
         <!-- 1. Daily Verse Card -->
         <div class="verse-card">
-            <div class="verse-arabic" id="daily-verse-ar">
-                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم
-            </div>
-            <div class="verse-english" id="daily-verse-en">
-                "In the name of Allah, the Entirely Merciful, the Especially Merciful."
-            </div>
+            <div class="verse-arabic skeleton skeleton-block" id="daily-verse-ar"
+                style="height:3rem; margin-bottom:1.5rem;"></div>
+            <div class="verse-english skeleton skeleton-text" id="daily-verse-en" style="width:80%;"></div>
             <button class="share-btn" onclick="alert('Sharing not implemented')">
                 <i class="fas fa-share-alt"></i> Share to Story
             </button>
@@ -294,23 +293,16 @@
         </div>
     </section>
 
+    <!-- Book-Style Footer -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-top">
-                <div class="footer-logo">EHSAAN<span class="highlight">PORTAL</span></div>
-                <p>Reviving Sunnahs through quality, ethics, and excellence. Your trusted partner in the Islamic
-                    lifestyle.</p>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom">
-                    <p>&copy; 2026 EHSAAN PORTAL. Learning Edition. All rights reserved.</p>
-                    <div class="payment-icons">
-                        <i class="fas fa-book-open"></i>
-                        <i class="fas fa-mosque"></i>
-                        <i class="fas fa-star-and-crescent"></i>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-content">
+            <div class="book-end-mark">End of Volume I</div>
+            <p>“Excellence (Ehsaan) is to worship Allah as if you see Him.”</p>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Ehsaan Portal &bull; Learning Edition</span>
+            <span style="opacity: 0.5; font-size: 0.7rem;">Designed for Reflection</span>
+        </div>
     </footer>
 
     <!-- Quran Reader Modal -->
@@ -393,6 +385,16 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('SW registered!', reg.scope))
+                    .catch(err => console.log('SW failed: ', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
