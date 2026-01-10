@@ -98,143 +98,145 @@ const duas = [
     }
 ];
 
-let currentFilter = 'all';
-let favorites = JSON.parse(localStorage.getItem('favDuas') || '[]');
-let showOnlyFavorites = false;
+// App State
+let currentCategory = 'all';
+let favs = JSON.parse(localStorage.getItem('savedDuas') || '[]');
+let isFavMode = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderDuas();
-    setupFilters();
-    setupSearch();
-    setupFavoritesToggle();
+    initApp();
 });
 
-function renderDuas() {
-    const container = document.getElementById('duas-container');
-    container.innerHTML = '';
+function initApp() {
+    renderFeed();
+    
+    // Search Listener
+    document.getElementById('search-input').addEventListener('input', (e) => {
+        renderFeed(e.target.value.toLowerCase());
+    });
 
-    let filtered = duas;
+    // Fav Toggle Listener
+    const favBtn = document.getElementById('fav-toggle-btn');
+    favBtn.addEventListener('click', () => {
+        isFavMode = !isFavMode;
+        
+        // UI Toggle
+        if(isFavMode) {
+            favBtn.classList.add('active');
+            favBtn.innerHTML = '<i class="fas fa-heart"></i> All Duas';
+            document.getElementById('page-title').innerText = 'Saved Collection';
+        } else {
+            favBtn.classList.remove('active');
+            favBtn.innerHTML = '<i class="fas fa-heart"></i> Favorites';
+            document.getElementById('page-title').innerText = 'All Duas';
+        }
+        
+        renderFeed();
+    });
+}
 
-    // 1. Filter by Category
-    if (currentFilter !== 'all') {
-        filtered = filtered.filter(d => d.category === currentFilter);
+function filterCategory(cat, btn) {
+    // Nav UI
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Logic
+    currentCategory = cat;
+    isFavMode = false; // Reset fav mode on cat switch
+    document.getElementById('fav-toggle-btn').classList.remove('active');
+    
+    document.getElementById('page-title').innerText = cat === 'all' ? 'All Duas' : `${cat} Duas`;
+    
+    renderFeed();
+}
+
+function renderFeed(searchQuery = '') {
+    const feed = document.getElementById('duas-feed');
+    feed.innerHTML = '';
+    
+    let data = duas;
+
+    // 1. Category Filter
+    if(currentCategory !== 'all') {
+        data = data.filter(d => d.category === currentCategory);
     }
 
-    // 2. Filter by Favorites
-    if (showOnlyFavorites) {
-        filtered = filtered.filter(d => favorites.includes(d.id));
+    // 2. Favorites Filter
+    if(isFavMode) {
+        data = data.filter(d => favs.includes(d.id));
     }
 
     // 3. Search Filter
-    const query = document.getElementById('search-duas').value.toLowerCase();
-    if (query) {
-        filtered = filtered.filter(d =>
-            d.translation.toLowerCase().includes(query) ||
-            d.transliteration.toLowerCase().includes(query) ||
-            d.category.toLowerCase().includes(query)
+    if(searchQuery) {
+        data = data.filter(d => 
+            d.translation.toLowerCase().includes(searchQuery) ||
+            d.transliteration.toLowerCase().includes(searchQuery) ||
+            d.category.toLowerCase().includes(searchQuery)
         );
     }
 
-    if (filtered.length === 0) {
-        container.innerHTML = '<div style="text-align:center; padding:40px; color:rgba(255,255,255,0.5);">No duas found.</div>';
+    if(data.length === 0) {
+        feed.innerHTML = `<div style="text-align:center; padding:40px; color:#64748b;">
+            <i class="fas fa-search" style="font-size:2rem; margin-bottom:10px;"></i><br>
+            No duas found in this view.
+        </div>`;
         return;
     }
 
-    filtered.forEach(d => {
-        const isFav = favorites.includes(d.id);
+    data.forEach(d => {
+        const isSaved = favs.includes(d.id);
         const card = document.createElement('div');
-        card.className = 'dua-card';
+        card.className = 'card';
         card.innerHTML = `
-            <div class="dua-meta">
-                <span class="badge">${d.category}</span>
-                <span class="badge" style="background:rgba(255,255,255,0.05); color:#94a3b8;">Ref: ${d.ref}</span>
+            <div class="card-header">
+                <span class="tag-pill">${d.category}</span>
+                <span class="ref-pill">Ref: ${d.ref}</span>
             </div>
-            <div class="arabic-text">${d.arabic}</div>
+            
+            <div class="arabic">${d.arabic}</div>
+            
             <div class="transliteration">${d.transliteration}</div>
-            <div class="translation">"${d.translation}"</div>
-            <div class="card-actions">
-                <button class="action-btn" onclick="copyDua('${d.translation}')">
+            
+            <div class="translation">
+                "${d.translation}"
+            </div>
+            
+            <div class="card-footer">
+                <button class="text-btn" onclick="copyText('${d.translation}')">
                     <i class="fas fa-copy"></i> Copy
                 </button>
-                <button class="action-btn" onclick="shareDua('${d.translation}')">
+                <button class="text-btn" onclick="shareDua('${d.translation}')">
                     <i class="fas fa-share-alt"></i> Share
                 </button>
-                <button class="action-btn ${isFav ? 'active-heart' : ''}" onclick="toggleLike(${d.id})">
-                    <i class="${isFav ? 'fas' : 'far'} fa-heart"></i> ${isFav ? 'Saved' : 'Save'}
+                <button class="text-btn" style="color: ${isSaved ? '#f43f5e' : ''}" onclick="toggleSave(${d.id})">
+                    <i class="${isSaved ? 'fas' : 'far'} fa-heart"></i> ${isSaved ? 'Saved' : 'Save'}
                 </button>
             </div>
         `;
-        container.appendChild(card);
-    });
-}
-
-// Filters
-function setupFilters() {
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class
-            buttons.forEach(b => b.classList.remove('active'));
-            // Add to clicked
-            btn.classList.add('active');
-
-            currentFilter = btn.dataset.cat;
-            // Reset searches/favs logic if needed, but here we stack them
-            renderDuas();
-
-            // Update Title
-            document.getElementById('feed-title').innerText = currentFilter === 'all' ? 'All Duas' : currentFilter + ' Duas';
-        });
-    });
-}
-
-function setupSearch() {
-    document.getElementById('search-duas').addEventListener('input', renderDuas);
-}
-
-function setupFavoritesToggle() {
-    const btn = document.getElementById('toggle-favorites');
-    btn.addEventListener('click', () => {
-        showOnlyFavorites = !showOnlyFavorites;
-        btn.style.background = showOnlyFavorites ? 'var(--accent)' : 'transparent';
-        btn.style.color = showOnlyFavorites ? 'white' : 'var(--secondary)';
-        btn.style.borderColor = showOnlyFavorites ? 'var(--accent)' : 'var(--border)';
-
-        document.getElementById('feed-title').innerText = showOnlyFavorites ? 'Your Favorites' : 'All Duas';
-        renderDuas();
+        feed.appendChild(card);
     });
 }
 
 // Actions
-window.copyDua = (text) => {
+window.copyText = (text) => {
     navigator.clipboard.writeText(text);
-    showToast();
+    // Could add toast here
 };
 
 window.shareDua = (text) => {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Authentic Dua',
-            text: text,
-            url: window.location.href
-        });
+    if(navigator.share) {
+        navigator.share({ title: 'Dua', text: text });
     } else {
-        copyDua(text);
+        copyText(text);
     }
 };
 
-window.toggleLike = (id) => {
-    if (favorites.includes(id)) {
-        favorites = favorites.filter(f => f !== id);
+window.toggleSave = (id) => {
+    if(favs.includes(id)) {
+        favs = favs.filter(x => x !== id);
     } else {
-        favorites.push(id);
+        favs.push(id);
     }
-    localStorage.setItem('favDuas', JSON.stringify(favorites));
-    renderDuas();
+    localStorage.setItem('savedDuas', JSON.stringify(favs));
+    renderFeed(); // Re-render to update heart icon immediately
 };
-
-function showToast() {
-    const t = document.getElementById('toast');
-    t.classList.add('active');
-    setTimeout(() => t.classList.remove('active'), 2000);
-}

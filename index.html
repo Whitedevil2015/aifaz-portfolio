@@ -3,59 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortress of the Believer | Authentic Duas</title>
+    <title>Hisnul Muslim - Authentic Duas</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="bg-gradient"></div>
-    <div class="noise-overlay"></div>
-
-    <nav class="glass-nav">
-        <div class="logo">HISN<span class="highlight">UL MUSLIM</span></div>
-        <div class="nav-actions">
-            <button class="icon-btn" id="toggle-favorites"><i class="fas fa-heart"></i> Favorites</button>
-            <button class="icon-btn"><i class="fas fa-cog"></i></button>
+    <!-- Left Sidebar -->
+    <aside class="app-sidebar">
+        <div class="brand-section">
+            <div class="logo">HISN<span class="highlight">UL MUSLIM</span></div>
         </div>
-    </nav>
 
-    <main class="app-container">
+        <div class="sidebar-label">Categories</div>
+        <nav class="nav-menu" id="category-menu">
+            <button class="nav-item active" onclick="filterCategory('all', this)"><i class="fas fa-th-large"></i> All</button>
+            <button class="nav-item" onclick="filterCategory('Morning', this)"><i class="fas fa-sun"></i> Morning</button>
+            <button class="nav-item" onclick="filterCategory('Evening', this)"><i class="fas fa-moon"></i> Evening</button>
+            <button class="nav-item" onclick="filterCategory('Sleep', this)"><i class="fas fa-bed"></i> Sleep</button>
+            <button class="nav-item" onclick="filterCategory('Travel', this)"><i class="fas fa-plane"></i> Travel</button>
+            <button class="nav-item" onclick="filterCategory('Home', this)"><i class="fas fa-home"></i> Home</button>
+            <button class="nav-item" onclick="filterCategory('Food', this)"><i class="fas fa-utensils"></i> Food</button>
+            <button class="nav-item" onclick="filterCategory('Prayer', this)"><i class="fas fa-pray"></i> Prayer</button>
+            <button class="nav-item" onclick="filterCategory('Ablution', this)"><i class="fas fa-water"></i> Ablution</button>
+            <button class="nav-item" onclick="filterCategory('Clothing', this)"><i class="fas fa-tshirt"></i> Clothing</button>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
         
-        <!-- Categories Sidebar -->
-        <aside class="category-sidebar">
-            <h3>Categories</h3>
-            <div class="cat-grid">
-                <button class="cat-btn active" data-cat="all"><i class="fas fa-th-large"></i> All</button>
-                <button class="cat-btn" data-cat="Morning"><i class="fas fa-sun"></i> Morning</button>
-                <button class="cat-btn" data-cat="Evening"><i class="fas fa-moon"></i> Evening</button>
-                <button class="cat-btn" data-cat="Sleep"><i class="fas fa-bed"></i> Sleep</button>
-                <button class="cat-btn" data-cat="Travel"><i class="fas fa-plane"></i> Travel</button>
-                <button class="cat-btn" data-cat="Home"><i class="fas fa-home"></i> Home</button>
-                <button class="cat-btn" data-cat="Food"><i class="fas fa-utensils"></i> Food</button>
-                <button class="cat-btn" data-cat="Prayer"><i class="fas fa-pray"></i> Prayer</button>
-                <button class="cat-btn" data-cat="Ablution"><i class="fas fa-water"></i> Ablution</button>
-                <button class="cat-btn" data-cat="Clothing"><i class="fas fa-tshirt"></i> Clothing</button>
+        <!-- Top Header -->
+        <header class="top-header">
+            <h1 class="page-title" id="page-title">All Duas</h1>
+            
+            <div class="header-actions">
+                <input type="text" id="search-input" class="search-bar" placeholder="Search for a dua...">
+                <button class="action-icon-btn" id="fav-toggle-btn" title="Show Favorites">
+                    <i class="fas fa-heart"></i> Favorites
+                </button>
+                <button class="action-icon-btn"><i class="fas fa-cog"></i></button>
             </div>
-        </aside>
+        </header>
 
-        <!-- Main Content -->
-        <section class="dua-feed">
-            <header class="feed-header">
-                <h1 id="feed-title">All Duas</h1>
-                <input type="text" id="search-duas" placeholder="Search for a dua...">
-            </header>
-
-            <div class="duas-list" id="duas-container">
-                <!-- Duas injected here -->
-            </div>
+        <!-- Dynamic Feed -->
+        <section class="content-feed" id="duas-feed">
+            <!-- Cards will be injected here via script.js -->
         </section>
 
     </main>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast hidden"><i class="fas fa-check-circle"></i> Copied to clipboard!</div>
 
     <script src="script.js"></script>
 </body>
