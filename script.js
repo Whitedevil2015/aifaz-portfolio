@@ -240,3 +240,35 @@ window.toggleSave = (id) => {
     localStorage.setItem('savedDuas', JSON.stringify(favs));
     renderFeed(); // Re-render to update heart icon immediately
 };
+
+function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('active');
+    setTimeout(() => t.classList.remove('active'), 2000);
+}
+// 2. Dummy Next Prayer Logic (Visual Only)
+function updatePrayerTimer() {
+    // In a real app, this would calculate time remaining
+    // For demo: just static placeholder
+    const timer = document.getElementById('next-prayer-timer');
+    const name = document.getElementById('next-prayer-name');
+    
+    if (timer && name) {
+        name.innerText = "Asr";
+        timer.innerText = "-01:15:22";
+    }
+}
+
+// 3. Daily Content Loader
+document.addEventListener('DOMContentLoaded', () => {
+    updatePrayerTimer();
+    
+    // Simulate fetching daily verse
+    const preview = document.querySelector('.arabic-preview');
+    if(preview) {
+        setTimeout(() => {
+            preview.innerText = "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ";
+            preview.style.opacity = 1;
+        }, 500);
+    }
+});
