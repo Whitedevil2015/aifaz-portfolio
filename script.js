@@ -579,18 +579,25 @@ document.addEventListener('DOMContentLoaded', () => {
     async function initAsma() {
         const grid = document.getElementById('asma-grid');
         if (!grid) return;
+
+        // Check if it's the compact preview version
+        const isCompact = grid.classList.contains('asma-grid-compact');
+
         try {
             const res = await fetch('https://api.aladhan.com/v1/asmaAlHusna');
             const data = await res.json();
             if (data.code === 200) {
-                grid.innerHTML = data.data.map((name, i) => `
-                    <div class="card-glass asma-card reveal-bottom" style="transition-delay: ${i * 0.05}s;">
-                        <span class="asma-number">${name.number}</span>
-                        <div class="name-container-3d">
-                            <h2 class="name-3d">${name.name}</h2>
+                // Limit to 4 if compact, otherwise all
+                const namesToShow = isCompact ? data.data.slice(0, 4) : data.data;
+
+                grid.innerHTML = namesToShow.map((name, i) => `
+                    <div class="card-glass asma-card reveal-bottom" style="transition-delay: ${i * 0.05}s; ${isCompact ? 'min-height:auto; padding:1.5rem;' : ''}">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                             <span class="asma-number" style="font-size:0.8rem; opacity:0.6;">#${name.number}</span>
+                             <h2 class="name-3d" style="font-size:1.5rem; margin:0;">${name.name}</h2>
                         </div>
-                        <h3 class="trans-3d">${name.transliteration}</h3>
-                        <p class="meaning-3d">${name.en.meaning}</p>
+                        <h3 class="trans-3d" style="font-size:1rem; margin-bottom:5px;">${name.transliteration}</h3>
+                        <p class="meaning-3d" style="font-size:0.8rem; line-height:1.4;">${name.en.meaning}</p>
                     </div>
                 `).join('');
                 document.querySelectorAll('#asma-grid .reveal-bottom').forEach(el => revealObserver.observe(el));
@@ -795,6 +802,21 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDuas();
 
     initAsma();
+
+    // Bind new Start Reading Button
+    const startReadingBtn = document.getElementById('start-reading-btn');
+    if (startReadingBtn) {
+        startReadingBtn.addEventListener('click', () => {
+            const quranModal = document.getElementById('quran-modal');
+            if (quranModal) {
+                quranModal.style.display = 'flex';
+                // Trigger default load if empty
+                if (typeof window.loadSurah === 'function') {
+                    window.loadSurah(1, 'Al-Fatiha');
+                }
+            }
+        });
+    }
 
 });
 
