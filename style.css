@@ -96,6 +96,189 @@ img {
     padding: 0 2rem;
 }
 
+/* Light Navbar Adjustments */
+.nav-container {
+    justify-content: space-between;
+}
+
+.center-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 3rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+/* New Light Hero Section */
+.hero-light {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: #fdfbf7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 60px;
+    /* Offset for navbar */
+}
+
+.hero-pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 50% 50%, transparent 0%, transparent 100%),
+        repeating-linear-gradient(45deg, rgba(4, 120, 87, 0.03) 0px, rgba(4, 120, 87, 0.03) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(-45deg, rgba(4, 120, 87, 0.03) 0px, rgba(4, 120, 87, 0.03) 1px, transparent 1px, transparent 40px);
+    z-index: 1;
+}
+
+.hero-container-centered {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
+
+.bismillah-graphic {
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-title-light {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    color: #064e3b;
+    /* Dark Green */
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero-highlight-gold {
+    color: #eab308;
+    /* Gold */
+}
+
+.hero-subtext-light {
+    font-family: var(--font-sans);
+    color: #6b7280;
+    /* Gray-500 */
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.hero-btns-row {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+.btn-green-pill {
+    background: #047857;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.btn-green-pill:hover {
+    background: #065f46;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+}
+
+.btn-outline-pill {
+    background: transparent;
+    color: #374151;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    border: 1px solid #d1d5db;
+    transition: all 0.3s;
+}
+
+.btn-outline-pill:hover {
+    border-color: #9ca3af;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.hero-bottom-decor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l5 15h15l-12 9 5 15-13-10-13 10 5-15-12-9h15z' fill='%23f3f4f6' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 1;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .center-links {
+        display: none;
+    }
+
+    .hero-title-light {
+        font-size: 3rem;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    /* Hide auth on mobile for now or simplify */
+}
+
 .text-gradient {
     background: var(--gradient-gold);
     -webkit-background-clip: text;
