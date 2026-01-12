@@ -1937,51 +1937,167 @@ footer p {
 .main-footer {
     background: #020617;
     /* Very dark slate/black */
-    color: #94a3b8;
+    background: #047857;
+    color: #e5e7eb;
     padding: 5rem 0 2rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Minimalist Overrides (Applied here to ensure they cascade over previous styles) */
 :root {
-    --primary-color: #10b981;
-    --primary-dark: #064e3b;
-    --accent-color: #fbbf24;
-    --text-dark: #f8fafc;
-    --text-light: #cbd5e1;
-    --bg-white: #0f172a;
-    --bg-light: #1e293b;
-    --glass-bg: #1e293b;
-    --glass-border: rgba(255, 255, 255, 0.05);
+    /* Noor Ethics - Soft Light Theme */
+    --primary-color: #047857;
+    /* Deep Emerald */
+    --primary-light: #10b981;
+    /* Soft Emerald */
+    --accent-color: #d4af37;
+    /* Gold */
+    --text-dark: #1f2937;
+    /* Dark Gray */
+    --text-muted: #4b5563;
+    /* Medium Gray */
+    --bg-white: #fdfbf7;
+    /* Gentle Cream */
+    --bg-light: #ffffff;
+    /* White */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(4, 120, 87, 0.1);
     --font-serif: 'Cormorant Garamond', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
     --font-arabic: 'Amiri', serif;
-    --gradient-emerald: linear-gradient(to bottom, #0f172a, #1e293b);
+    --gradient-emerald: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    --container-width: 1240px;
 }
 
 body {
     background-color: var(--bg-white);
     color: var(--text-dark);
+    font-family: var(--font-sans);
 }
 
 .navbar {
-    background: var(--bg-white) !important;
-    border-bottom: 1px solid var(--glass-border) !important;
-    backdrop-filter: none !important;
+    background: rgba(253, 251, 247, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 .logo span {
-    color: white !important;
-    font-weight: 500 !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
 }
 
 .nav-links a {
-    color: var(--text-light) !important;
-    font-weight: 400 !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
 }
 
 .nav-links a:hover {
     color: var(--primary-color) !important;
+}
+
+/* Hero Refinement for Light Theme */
+.hero-section {
+    background: var(--bg-white);
+    background-image: linear-gradient(rgba(253, 251, 247, 0.9), rgba(253, 251, 247, 0.95)),
+        url('https://www.transparenttextures.com/patterns/arabesque.png');
+    /* Subtle pattern placeholder or pure CSS pattern */
+    color: var(--text-dark);
+}
+
+.arabic-verse {
+    color: var(--primary-color);
+}
+
+.english-verse {
+    color: var(--text-dark);
+}
+
+.verse-ref {
+    color: var(--accent-color);
+}
+
+.hero-decorative-divider {
+    color: var(--accent-color);
+}
+
+.hijri-badge {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--primary-color);
+}
+
+.hero-scroll-btn a {
+    color: var(--text-muted) !important;
+}
+
+/* General Section Overrides */
+.portal-section {
+    background: var(--bg-white);
+}
+
+.section-title {
+    color: var(--primary-color) !important;
+}
+
+.section-subtitle {
+    color: var(--text-muted) !important;
+}
+
+/* Cards Light Mode */
+.hadith-card,
+.kids-card,
+.glass-container,
+.prayer-card {
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.hadith-card:hover,
+.kids-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+    background: white !important;
+}
+
+.hadith-arabic {
+    color: var(--text-dark);
+}
+
+.hadith-english {
+    color: var(--text-muted);
+}
+
+.card-icon-bg {
+    background: rgba(4, 120, 87, 0.1);
+    color: var(--primary-color);
+}
+
+.kids-card h3 {
+    color: var(--text-dark);
+}
+
+.kids-card p {
+    color: var(--text-muted);
+}
+
+.prayer-time {
+    -webkit-text-fill-color: var(--text-dark);
+    color: var(--text-dark);
+}
+
+/* Footer Light */
+.main-footer {
+    background: #047857;
+    color: #e5e7eb;
+}
+
+.footer-col h4 {
+    color: white;
+}
+
+.footer-col ul li a {
+    color: #d1fae5;
 }
 
 /* Hadith Section Styles */
