@@ -51,34 +51,62 @@
         </div>
     </nav>
 
-    <header id="home" class="hero-light">
+    <header id="home" class="hero-section">
         <div class="hero-pattern-overlay"></div>
-        <div class="container hero-container-centered">
+        <div class="container hero-content-stacked">
 
-            <div class="bismillah-graphic">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Basmala.svg" alt="Bismillah"
-                    style="width: 200px; opacity: 0.8; filter: invert(74%) sepia(34%) saturate(769%) hue-rotate(357deg) brightness(97%) contrast(93%);">
+            <!-- Verse of the Day / Intro -->
+            <div class="hero-verse-container fade-in-section">
+                <p class="arabic-verse">أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</p>
+                <h1 class="english-verse">"Unquestionably, by the remembrance of Allah<br>hearts are assured."</h1>
+                <p class="verse-ref">— Surah Ar-Ra'd (13:28)</p>
             </div>
 
-            <h1 class="hero-title-light">
-                Your Gateway to <br>
-                <span class="hero-highlight-gold">Spiritual Growth</span>
-            </h1>
+            <!-- 3D Holy Mosques Cards -->
+            <div class="holy-sites-grid">
+                <!-- Makkah -->
+                <div class="holy-card tilt-card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1565552629477-098527a72d7d?q=80&w=800&auto=format&fit=crop');">
+                        <div class="overlay-grad"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Al-Haram</h3>
+                        <p>Makkah</p>
+                    </div>
+                </div>
 
-            <p class="hero-subtext-light">
-                Embrace your faith with prayer times, Quran recitation, Islamic knowledge, and a supportive community —
-                all in one beautiful place.
-            </p>
+                <!-- Madina -->
+                <div class="holy-card tilt-card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=800&auto=format&fit=crop');">
+                        <div class="overlay-grad"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Al-Nabawi</h3>
+                        <p>Madina</p>
+                    </div>
+                </div>
 
-            <div class="hero-btns-row">
-                <a href="#prayer-times" class="btn-green-pill">Get Started Free <i class="fas fa-chevron-right"
-                        style="font-size: 0.8rem; margin-left: 5px;"></i></a>
-                <a href="#quran-index" class="btn-outline-pill">Explore Features</a>
+                <!-- Al-Aqsa -->
+                <div class="holy-card tilt-card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=800&auto=format&fit=crop');">
+                        <div class="overlay-grad"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Al-Aqsa</h3>
+                        <p>Jerusalem</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="hero-scroll-btn">
+                <a href="#prayer-times" style="color:white; opacity:0.7; font-size:1.5rem;"><i
+                        class="fas fa-chevron-down bounce"></i></a>
+            </div>
+
         </div>
-
-        <!-- Decorative Bottom Pattern -->
-        <div class="hero-bottom-decor"></div>
     </header>
 
     <!-- Prayer Times Section -->

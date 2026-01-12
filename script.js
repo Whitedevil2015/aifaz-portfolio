@@ -915,6 +915,6 @@ class VanillaTilt {
 
 // Initialize 3D Tilt
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.prayer-card, .asma-card, .glass-container, .value-card');
+    const cards = document.querySelectorAll('.prayer-card, .asma-card, .glass-container, .value-card, .tilt-card');
     cards.forEach(card => new VanillaTilt(card));
 });
