@@ -587,11 +587,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('https://api.aladhan.com/v1/asmaAlHusna');
             const data = await res.json();
             if (data.code === 200) {
-                // Limit to 4 if compact, otherwise all
-                const namesToShow = isCompact ? data.data.slice(0, 4) : data.data;
+                // Render Full List
+                const namesToShow = data.data;
 
                 grid.innerHTML = namesToShow.map((name, i) => `
-                    <div class="card-glass asma-card reveal-bottom" style="transition-delay: ${i * 0.05}s; ${isCompact ? 'min-height:auto; padding:1.5rem;' : ''}">
+                    <div class="card-glass asma-card reveal-bottom" style="transition-delay: ${i * 0.05}s;">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                              <span class="asma-number" style="font-size:0.8rem; opacity:0.6;">#${name.number}</span>
                              <h2 class="name-3d" style="font-size:1.5rem; margin:0;">${name.name}</h2>

@@ -30,10 +30,10 @@
 
     <nav class="navbar" style="background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.05);">
         <div class="container nav-container">
-            <a href="#" class="logo" style="color: #1a1a1a;">
+            <a href="#" class="logo" style="color: #ffffff;">
                 <i class="fas fa-star"
-                    style="background:#f59e0b; padding:6px; border-radius:50%; color:white; font-size: 0.9rem;"></i>
-                <span style="font-family: 'Cormorant Garamond'; font-weight: 700; margin-left: 8px;">Noor</span>
+                    style="background:var(--primary-color); padding:6px; border-radius:50%; color:white; font-size: 0.9rem;"></i>
+                <span style="font-family: 'Cormorant Garamond'; font-weight: 700; margin-left: 8px;">Zaifa</span>
             </a>
 
             <ul class="nav-links center-links">
@@ -129,79 +129,33 @@
         </div>
     </section>
 
-    <!-- 99 Names Section (Redesigned) -->
-    <section id="asma-ul-husna" class="feature-split-section" style="background: #fdfbf7;">
-        <div class="container split-layout">
-            <!-- Left Info Column -->
-            <div class="section-info-col">
+    <!-- 99 Names Section (Full Grid) -->
+    <section id="asma-ul-husna" class="portal-section" style="background: var(--bg-white);">
+        <div class="container">
+            <div class="section-header">
                 <p class="arabic-subtitle">الأسماء الحسنى</p>
-                <h2 class="section-title-large">The 99 Names of Allah</h2>
-                <p class="section-desc">Discover the beautiful attributes of your Creator. Memorizing and understanding
-                    these names strengthens your bond with Allah.</p>
-
-                <ul class="feature-list">
-                    <li><i class="fas fa-star"></i> Learn meanings and transliterations</li>
-                    <li><i class="fas fa-star"></i> Audio pronunciation for each name</li>
-                    <li><i class="fas fa-star"></i> Track your memorization progress</li>
-                </ul>
-
-                <button class="btn btn-green-pill" style="margin-top:2rem;">View All Names</button>
+                <h2 class="section-title">The 99 Names of Allah</h2>
+                <p class="section-subtitle-text">Discover the beautiful attributes of your Creator.</p>
             </div>
 
-            <!-- Right Preview Column (Grid) -->
-            <div class="section-preview-col">
-                <div id="asma-grid" class="asma-grid-compact">
-                    <!-- JS will inject a subset here -->
-                </div>
+            <div id="asma-grid" class="asma-grid-full">
+                <!-- JS will inject all names here -->
             </div>
         </div>
     </section>
 
-    <!-- Quran Section (Reference Design) -->
-    <section id="quran-index" class="feature-split-section" style="background: #ffffff;">
-        <div class="container split-layout">
-            <!-- Left Info Column -->
-            <div class="section-info-col">
+    <!-- Quran Section (Full Grid) -->
+    <section id="quran-index" class="portal-section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
                 <p class="arabic-subtitle">القرآن الكريم</p>
-                <h2 class="section-title-large">The Holy Quran</h2>
-                <p class="section-desc">Immerse yourself in the words of Allah with our beautifully crafted Quran
-                    reader. Listen to renowned reciters, follow along with translations.</p>
-
-                <ul class="feature-list">
-                    <li><i class="fas fa-star"></i> 15+ translations in various languages</li>
-                    <li><i class="fas fa-star"></i> Audio recitation by famous Qaris</li>
-                    <li><i class="fas fa-star"></i> Bookmarks and memorization tracking</li>
-                    <li><i class="fas fa-star"></i> Word-by-word translation and tajweed rules</li>
-                </ul>
-
-                <button id="start-reading-btn" class="btn btn-green-pill" style="margin-top:2rem;">Start
-                    Reading</button>
+                <h2 class="section-title">The Holy Quran</h2>
+                <p class="section-subtitle-text">Immerse yourself in the words of Allah.</p>
             </div>
 
-            <!-- Right Preview Column (Player Card) -->
-            <div class="section-preview-col">
-                <div class="quran-preview-card">
-                    <div class="preview-header">
-                        <span style="opacity:0.8; font-size:0.9rem;">Surah Al-Fatiha</span>
-                        <h3 style="font-family:'Amiri'; margin:0;">سورة الفاتحة</h3>
-                    </div>
-                    <div class="preview-body">
-                        <div class="preview-verse">
-                            بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-                        </div>
-                        <div class="preview-verse" style="margin-top:1rem;">
-                            ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ
-                        </div>
-                        <div class="preview-verse" style="margin-top:1rem;">
-                            ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-                        </div>
-                    </div>
-                    <div class="preview-footer">
-                        <span class="ctrl-btn"><i class="fas fa-chevron-left"></i> Previous</span>
-                        <button class="play-circle-btn"><i class="fas fa-play"></i></button>
-                        <span class="ctrl-btn">Next <i class="fas fa-chevron-right"></i></span>
-                    </div>
-                </div>
+            <!-- Full Surah List Container -->
+            <div id="surah-index-grid" class="surah-grid-full">
+                <!-- JS will inject Surah List here -->
             </div>
         </div>
     </section>
