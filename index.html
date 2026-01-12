@@ -74,17 +74,11 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div id="canvas-container" class="product-showcase">
-                    <!-- 3D Model will be injected here -->
+                <div class="hero-graphic"
+                    style="position:relative; width:100%; height:400px; display:flex; justify-content:center; align-items:center;">
+                    <i class="fas fa-quran"
+                        style="font-size:15rem; color: var(--glass-border); filter:drop-shadow(0 0 20px rgba(212,175,55,0.2)); opacity:0.8;"></i>
                     <div class="glow-effect"></div>
-                    <div class="floating-card card-1">
-                        <i class="fas fa-star-and-crescent"></i>
-                        <span>Spiritually Crafted</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-award"></i>
-                        <span>Premium Quality</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -166,148 +160,218 @@
         </div>
     </section>
 
-    <!-- Featured Shop Removed -->
-
-    <!-- Featured Shop & Collections Removed -->
-
-    <section id="about" class="about">
-        <div class="container about-container">
-            <div class="section-header">
-                <h2 class="section-title">Our Values</h2>
-                <p class="section-subtitle">Guiding Principles of Faith</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>Ehsan (Excellence)</h3>
-                    <p>Striving for perfection in every product and interaction, as Allah loves those who do good.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-scale-balanced"></i></div>
-                    <h3>Amanah (Trust)</h3>
-                    <p>Upholding honesty and transparency in all our dealings, ensuring 100% authentic products.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-handshake-angle"></i></div>
-                    <h3>Adab (Etiquette)</h3>
-                    <p>Treating every customer with the respect and kindness taught by our beloved Prophet (PBUH).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Commercial Sections Removed -->
-
-    <section id="support" class="contact">
+    <!-- Islamic Books Section -->
+    <section id="books" class="portal-section" style="background: var(--bg-white);">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Reach Out</h2>
-                <p class="section-subtitle">We are here to serve</p>
+                <h2 class="section-title">Islamic Library</h2>
+                <p class="section-subtitle">Books of Hadith & Wisdom</p>
             </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Us</h4>
-                            <p>salam@zaifaislamic.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-pin"></i>
-                        <div>
-                            <h4>Locations</h4>
-                            <p>Serving Globally</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <p>+1 234 567 890</p>
-                        </div>
-                    </div>
+            <div class="prayer-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="prayer-card open-book-btn" data-book="Sahih Bukhari"
+                    style="cursor:pointer; text-align:center;">
+                    <i class="fas fa-book-open"
+                        style="font-size:3rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <span class="prayer-name" style="display:block;">Sahih Bukhari</span>
+                    <span style="font-size:0.8rem; color:var(--text-light);">Authentic Hadiths</span>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="email@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" placeholder="How can we assist you?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div class="prayer-card open-book-btn" data-book="Sahih Muslim"
+                    style="cursor:pointer; text-align:center;">
+                    <i class="fas fa-book-open"
+                        style="font-size:3rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <span class="prayer-name" style="display:block;">Sahih Muslim</span>
+                    <span style="font-size:0.8rem; color:var(--text-light);">Authentic Hadiths</span>
+                </div>
+                <div class="prayer-card open-book-btn" data-book="Riyad us-Saliheen"
+                    style="cursor:pointer; text-align:center;">
+                    <i class="fas fa-book-reader"
+                        style="font-size:3rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <span class="prayer-name" style="display:block;">Riyad us-Saliheen</span>
+                    <span style="font-size:0.8rem; color:var(--text-light);">Gardens of the Righteous</span>
+                </div>
+                <div class="prayer-card open-book-btn" data-book="40 Hadith Nawawi"
+                    style="cursor:pointer; text-align:center;">
+                    <i class="fas fa-scroll" style="font-size:3rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <span class="prayer-name" style="display:block;">40 Hadith Nawawi</span>
+                    <span style="font-size:0.8rem; color:var(--text-light);">Core Fundamentals</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-top">
-                <div class="footer-logo">ZAIFA<span class="highlight">ISLAMIC</span></div>
-                <p>Reviving Sunnahs through quality, ethics, and excellence. Your trusted partner in the Islamic
-                    lifestyle.</p>
+    <!-- Duas Section -->
+    <section id="duas" class="portal-section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Daily Adhkar & Duas</h2>
+                <p class="section-subtitle">Remembrance of Allah</p>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom">
-                    <p>&copy; 2026 ZAIFA ISLAMIC. Learning Edition. All rights reserved.</p>
-                    <div class="payment-icons">
-                        <i class="fas fa-book-open"></i>
-                        <i class="fas fa-mosque"></i>
-                        <i class="fas fa-star-and-crescent"></i>
-                    </div>
+            <div class="values-grid">
+                <div class="value-card" onclick="window.openReaderAndLoad(1, 'Morning Adhkar')" style="cursor:pointer;">
+                    <div class="value-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Morning Adhkar</h3>
+                    <p>Start your day with the remembrance of Allah for protection and barakah.</p>
+                </div>
+                <div class="value-card" onclick="window.openReaderAndLoad(114, 'Evening Adhkar')"
+                    style="cursor:pointer;">
+                    <div class="value-icon"><i class="fas fa-moon"></i></div>
+                    <h3>Evening Adhkar</h3>
+                    <p>End your day with gratitude and seek protection through the night.</p>
+                </div>
+                <div class="value-card" onclick="window.openReaderAndLoad(112, 'Quranic Duas')" style="cursor:pointer;">
+                    <div class="value-icon"><i class="fas fa-hands-praying"></i></div>
+                    <h3>Quranic Duas</h3>
+                    <p>Supplications directly from the Holy Quran for guidance and mercy.</p>
                 </div>
             </div>
-    </footer>
 
-    <!-- Quran Reader Modal -->
-    <div id="quran-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="reader-title" style="font-family:'Amiri'; font-size:1.5rem; color: var(--gold);">The Noble Quran
-                </h3>
-                <div class="reader-controls-center" style="display:flex; gap:10px;">
-                    <button class="lang-btn active" data-lang="en"
-                        style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">English</button>
-                    <button class="lang-btn" data-lang="ur"
-                        style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">Urdu</button>
-                </div>
-                <div class="audio-player-box">
-                    <span id="surah-info" style="font-size:0.8rem; color:var(--text-light);"></span>
-                    <div class="player-controls">
-                        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
-                    </div>
-                    <audio id="quran-audio"></audio>
-                </div>
-                <button id="close-quran-btn"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="modal-body">
-                <aside class="surah-sidebar">
-                    <div class="tabs"
-                        style="display:flex; padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">
-                        <button id="tab-surah" class="active"
-                            style="flex:1; background:none; border:none; color:white; cursor:pointer; font-weight:bold;">Surahs</button>
-                    </div>
-                    <div id="surah-list-container" class="surah-list-container">
-                        <div id="surah-list"></div>
-                    </div>
-                </aside>
-                <main class="verse-view">
-                    <div id="quran-content">
-                        <!-- Verses go here -->
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
+            <!-- Featured Shop Removed -->
 
-    <script src="script.js"></script>
+            <!-- Featured Shop & Collections Removed -->
+
+            <section id="about" class="about">
+                <div class="container about-container">
+                    <div class="section-header">
+                        <h2 class="section-title">Our Values</h2>
+                        <p class="section-subtitle">Guiding Principles of Faith</p>
+                    </div>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                            <h3>Ehsan (Excellence)</h3>
+                            <p>Striving for perfection in every product and interaction, as Allah loves those who do
+                                good.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fas fa-scale-balanced"></i></div>
+                            <h3>Amanah (Trust)</h3>
+                            <p>Upholding honesty and transparency in all our dealings, ensuring 100% authentic products.
+                            </p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fas fa-handshake-angle"></i></div>
+                            <h3>Adab (Etiquette)</h3>
+                            <p>Treating every customer with the respect and kindness taught by our beloved Prophet
+                                (PBUH).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Commercial Sections Removed -->
+
+            <section id="support" class="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Reach Out</h2>
+                        <p class="section-subtitle">We are here to serve</p>
+                    </div>
+                    <div class="contact-wrapper">
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <p>salam@zaifaislamic.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-pin"></i>
+                                <div>
+                                    <h4>Locations</h4>
+                                    <p>Serving Globally</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>+1 234 567 890</p>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="5" placeholder="How can we assist you?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container footer-content">
+                    <div class="footer-top">
+                        <div class="footer-logo">ZAIFA<span class="highlight">ISLAMIC</span></div>
+                        <p>Reviving Sunnahs through quality, ethics, and excellence. Your trusted partner in the Islamic
+                            lifestyle.</p>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="footer-bottom">
+                            <p>&copy; 2026 ZAIFA ISLAMIC. Learning Edition. All rights reserved.</p>
+                            <div class="payment-icons">
+                                <i class="fas fa-book-open"></i>
+                                <i class="fas fa-mosque"></i>
+                                <i class="fas fa-star-and-crescent"></i>
+                            </div>
+                        </div>
+                    </div>
+            </footer>
+
+            <!-- Quran Reader Modal -->
+            <div id="quran-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="reader-title" style="font-family:'Amiri'; font-size:1.5rem; color: var(--gold);">The
+                            Noble Quran
+                        </h3>
+                        <div class="reader-controls-center" style="display:flex; gap:10px;">
+                            <button class="lang-btn active" data-lang="en"
+                                style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">English</button>
+                            <button class="lang-btn" data-lang="ur"
+                                style="background:none; border:1px solid #D4AF37; color:white; padding:5px 10px; border-radius:4px; cursor:pointer;">Urdu</button>
+                        </div>
+                        <div class="audio-player-box">
+                            <span id="surah-info" style="font-size:0.8rem; color:var(--text-light);"></span>
+                            <div class="player-controls">
+                                <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                            <audio id="quran-audio"></audio>
+                        </div>
+                        <button id="close-quran-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <aside class="surah-sidebar">
+                            <div class="tabs"
+                                style="display:flex; padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">
+                                <button id="tab-surah" class="active"
+                                    style="flex:1; background:none; border:none; color:white; cursor:pointer; font-weight:bold;">Surahs</button>
+                            </div>
+                            <div id="surah-list-container" class="surah-list-container">
+                                <div id="surah-list"></div>
+                            </div>
+                        </aside>
+                        <main class="verse-view">
+                            <div id="quran-content">
+                                <!-- Verses go here -->
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+
+            <script src="script.js"></script>
 </body>
 
 </html>
