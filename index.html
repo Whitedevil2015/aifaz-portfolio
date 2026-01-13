@@ -168,7 +168,8 @@
                 <!-- Daily Fiqh -->
                 <div class="kids-card category-card">
                     <div class="card-icon-bg" style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
-                        <i class="fas fa-book-open"></i></div>
+                        <i class="fas fa-book-open"></i>
+                    </div>
                     <h3>Daily Fiqh</h3>
                     <p>Essential rules on Salah, Fasting (Sawm), and Zakat broken down simply.</p>
                     <button class="btn btn-outline-pill" style="margin-top: 1.5rem; font-size: 0.9rem;">Learn
@@ -178,7 +179,8 @@
                 <!-- Family & Youth -->
                 <div class="kids-card category-card">
                     <div class="card-icon-bg" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-color);">
-                        <i class="fas fa-users"></i></div>
+                        <i class="fas fa-users"></i>
+                    </div>
                     <h3>Family & Youth</h3>
                     <p>Guidance on marriage, effective parenting, and engaging stories for kids.</p>
                     <button class="btn btn-outline-pill" style="margin-top: 1.5rem; font-size: 0.9rem;">Explore</button>
@@ -572,6 +574,42 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Global Audio Player (Fixed Bottom) -->
+    <div id="global-player" class="global-audio-player">
+        <div class="player-info">
+            <div class="player-icon-art"><i class="fas fa-quran"></i></div>
+            <div class="player-text">
+                <h4 id="player-track-title">Surah Al-Fatiha</h4>
+                <p id="player-track-artist">Mishary Alafasy</p>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button class="player-btn prev-btn"><i class="fas fa-step-backward"></i></button>
+            <button id="global-play-btn" class="play-pause-btn"><i class="fas fa-play"></i></button>
+            <button class="player-btn next-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+
+        <div class="player-progress-container">
+            <div class="player-progress-bar" id="audio-progress-bar">
+                <div class="progress-filled" id="audio-progress-filled"></div>
+                <div class="progress-thumb"></div>
+            </div>
+        </div>
+
+        <div class="player-volume" style="display:flex; align-items:center; gap:10px; color:var(--text-muted);">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" min="0" max="1" step="0.1" style="width:80px; accent-color:var(--primary-color);">
+        </div>
+
+        <button id="close-player-btn"
+            style="background:none; border:none; color:var(--text-muted); margin-left:1rem; cursor:pointer;"><i
+                class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="main-audio-element"></audio>
+
 </body>
 
 </html>

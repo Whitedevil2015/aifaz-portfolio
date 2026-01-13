@@ -1050,3 +1050,202 @@ function initTasbih() {
         });
     }
 }
+
+// --- Prayer Times Auto-Detection (AlAdhan API) ---
+function initPrayerTimes() {
+    const prayerGrid = document.querySelector('.prayer-grid-modern') || document.getElementById('prayer-times-grid');
+    // If we are replacing the old grid, we might need to target the container
+    const prayerContainer = document.querySelector('.prayer-container') || document.getElementById('prayer-times');
+
+    if (!prayerContainer) return;
+
+    // Create container if grid doesn't exist inside
+    if (!document.querySelector('.prayer-grid-modern')) {
+        prayerContainer.innerHTML = '<div class="container prayer-container"><div style="text-align:center; padding:2rem;">Fetching accurate prayer times... <i class="fas fa-spinner fa-spin"></i></div></div>';
+    }
+
+    // Default: Mecca
+    let lat = 21.3891;
+    let lon = 39.8579;
+
+    function fetchTimes(latitude, longitude) {
+        const date = new Date();
+        const timestamp = Math.floor(date.getTime() / 1000);
+
+        fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${latitude}&longitude=${longitude}&method=2`)
+            .then(res => res.json())
+            .then(data => {
+                renderPrayerTimes(data.data.timings);
+            })
+            .catch(err => {
+                console.error("Prayer API Error:", err);
+            });
+    }
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                fetchTimes(position.coords.latitude, position.coords.longitude);
+            },
+            () => {
+                console.log("Geolocation denied, using default.");
+                fetchTimes(lat, lon); // Default
+            }
+        );
+    } else {
+        fetchTimes(lat, lon);
+    }
+}
+
+function renderPrayerTimes(timings) {
+    // Locate the section to inject
+    const section = document.getElementById('prayer-times');
+    if (!section) return;
+
+    const containerHub = section.querySelector('.container') || section;
+
+    containerHub.innerHTML = `
+        <div class="section-header">
+            <h2 class="section-title">Prayer Times</h2>
+            <p class="section-subtitle">Auto-detected for your location</p>
+        </div>
+        <div class="prayer-grid-modern">
+            ${createPrayerCard('Fajr', timings.Fajr, 'fa-cloud-sun')}
+            ${createPrayerCard('Dhuhr', timings.Dhuhr, 'fa-sun')}
+            ${createPrayerCard('Asr', timings.Asr, 'fa-cloud-sun-rain')}
+            ${createPrayerCard('Maghrib', timings.Maghrib, 'fa-moon')}
+            ${createPrayerCard('Isha', timings.Isha, 'fa-star')}
+        </div>
+    `;
+
+    highlightNextPrayer(timings);
+}
+
+function createPrayerCard(name, time, icon) {
+    return `
+        <div class="prayer-card-modern" data-name="${name}" data-time="${time}">
+            <i class="fas ${icon} prayer-icon"></i>
+            <div class="prayer-name">${name}</div>
+            <div class="prayer-time-large">${formatTime(time)}</div>
+        </div>
+    `;
+}
+
+function formatTime(timeVal) {
+    // AlAdhan returns "HH:MM", convert to 12h
+    let [h, m] = timeVal.split(':');
+    let ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12;
+    h = h ? h : 12;
+    return `${h}:${m} ${ampm}`;
+}
+
+function highlightNextPrayer(timings) {
+    // Simple logic to find next prayer
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const prayers = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+    let nextPrayer = 'Fajr'; // Default to next day Fajr
+
+    for (let p of prayers) {
+        const [h, m] = timings[p].split(':');
+        const pMinutes = parseInt(h) * 60 + parseInt(m);
+
+        if (pMinutes > currentMinutes) {
+            nextPrayer = p;
+            break;
+        }
+    }
+
+    const cards = document.querySelectorAll('.prayer-card-modern');
+    cards.forEach(card => {
+        if (card.dataset.name === nextPrayer) {
+            card.classList.add('next-prayer');
+        }
+    });
+}
+
+
+// --- Global Audio Player Logic ---
+const audioPlayer = {
+    element: null,
+    container: null,
+    playBtn: null,
+    progressBar: null,
+    isPlaying: false,
+
+    init() {
+        this.element = document.getElementById('main-audio-element');
+        this.container = document.getElementById('global-player');
+        this.playBtn = document.getElementById('global-play-btn');
+        this.progressBar = document.getElementById('audio-progress-filled');
+
+        if (!this.playBtn || !this.element) return;
+
+        this.playBtn.addEventListener('click', () => this.togglePlay());
+
+        this.element.addEventListener('timeupdate', () => {
+            if (this.element.duration) {
+                const percent = (this.element.currentTime / this.element.duration) * 100;
+                if (this.progressBar) this.progressBar.style.width = `${percent}%`;
+            }
+        });
+
+        document.getElementById('close-player-btn')?.addEventListener('click', () => {
+            this.container.classList.remove('active');
+            this.element.pause();
+            this.isPlaying = false;
+            this.updateIcon();
+        });
+    },
+
+    playTrack(url, title, artist) {
+        if (!this.element) return;
+        this.element.src = url;
+
+        const titleEl = document.getElementById('player-track-title');
+        const artistEl = document.getElementById('player-track-artist');
+        if (titleEl) titleEl.textContent = title;
+        if (artistEl) artistEl.textContent = artist;
+
+        this.container.classList.add('active');
+        this.element.play()
+            .then(() => {
+                this.isPlaying = true;
+                this.updateIcon();
+            })
+            .catch(e => console.error("Audio Play Error:", e));
+    },
+
+    togglePlay() {
+        if (!this.element) return;
+        if (this.element.paused) {
+            this.element.play();
+            this.isPlaying = true;
+        } else {
+            this.element.pause();
+            this.isPlaying = false;
+        }
+        this.updateIcon();
+    },
+
+    updateIcon() {
+        const icon = this.playBtn.querySelector('i');
+        if (!icon) return;
+        if (this.isPlaying) {
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+        } else {
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+        }
+    }
+};
+
+// Initialize All
+document.addEventListener('DOMContentLoaded', () => {
+    // Re-call these if they were already called or call them now
+    initPrayerTimes();
+    audioPlayer.init();
+});
