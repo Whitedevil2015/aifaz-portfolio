@@ -1051,74 +1051,73 @@ function initTasbih() {
     }
 }
 
-// --- Prayer Times Auto-Detection (AlAdhan API) ---
+// --- Prayer Times Logic (Auto & Manual) ---
 function initPrayerTimes() {
-    const prayerGrid = document.querySelector('.prayer-grid-modern') || document.getElementById('prayer-times-grid');
-    // If we are replacing the old grid, we might need to target the container
-    const prayerContainer = document.querySelector('.prayer-container') || document.getElementById('prayer-times');
-
-    if (!prayerContainer) return;
-
-    // Create container if grid doesn't exist inside
-    if (!document.querySelector('.prayer-grid-modern')) {
-        prayerContainer.innerHTML = '<div class="container prayer-container"><div style="text-align:center; padding:2rem;">Fetching accurate prayer times... <i class="fas fa-spinner fa-spin"></i></div></div>';
+    // Event Listener for Manual Search
+    const searchBtn = document.getElementById('prayer-search-btn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+            const city = document.getElementById('prayer-city').value;
+            const country = document.getElementById('prayer-country').value;
+            if (city && country) {
+                fetchTimesByCity(city, country);
+            } else {
+                alert("Please enter both City and Country");
+            }
+        });
     }
 
-    // Default: Mecca
-    let lat = 21.3891;
-    let lon = 39.8579;
-
-    function fetchTimes(latitude, longitude) {
-        const date = new Date();
-        const timestamp = Math.floor(date.getTime() / 1000);
-
-        fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${latitude}&longitude=${longitude}&method=2`)
-            .then(res => res.json())
-            .then(data => {
-                renderPrayerTimes(data.data.timings);
-            })
-            .catch(err => {
-                console.error("Prayer API Error:", err);
-            });
-    }
-
+    // Default: Auto-Detect
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                fetchTimes(position.coords.latitude, position.coords.longitude);
+                fetchTimesByCoords(position.coords.latitude, position.coords.longitude);
             },
             () => {
-                console.log("Geolocation denied, using default.");
-                fetchTimes(lat, lon); // Default
+                // Fallback to Mecca
+                fetchTimesByCoords(21.3891, 39.8579);
             }
         );
     } else {
-        fetchTimes(lat, lon);
+        fetchTimesByCoords(21.3891, 39.8579);
     }
 }
 
-function renderPrayerTimes(timings) {
-    // Locate the section to inject
-    const section = document.getElementById('prayer-times');
-    if (!section) return;
+function fetchTimesByCoords(lat, lon) {
+    const date = new Date();
+    const timestamp = Math.floor(date.getTime() / 1000);
+    fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=2`)
+        .then(res => res.json())
+        .then(data => renderPrayerTimes(data.data.timings, "Auto-detected Location"))
+        .catch(err => console.error(err));
+}
 
-    const containerHub = section.querySelector('.container') || section;
+function fetchTimesByCity(city, country) {
+    fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2`)
+        .then(res => res.json())
+        .then(data => renderPrayerTimes(data.data.timings, `${city}, ${country}`))
+        .catch(err => {
+            alert("Could not find prayer times for this location.");
+            console.error(err);
+        });
+}
 
-    containerHub.innerHTML = `
-        <div class="section-header">
-            <h2 class="section-title">Prayer Times</h2>
-            <p class="section-subtitle">Auto-detected for your location</p>
-        </div>
-        <div class="prayer-grid-modern">
+function renderPrayerTimes(timings, locationLabel) {
+    const grid = document.getElementById('prayer-times-grid');
+    const subtitle = document.querySelector('#prayer-times .section-subtitle');
+
+    if (subtitle) subtitle.textContent = locationLabel;
+
+    if (grid) {
+        grid.innerHTML = `
             ${createPrayerCard('Fajr', timings.Fajr, 'fa-cloud-sun')}
             ${createPrayerCard('Dhuhr', timings.Dhuhr, 'fa-sun')}
             ${createPrayerCard('Asr', timings.Asr, 'fa-cloud-sun-rain')}
             ${createPrayerCard('Maghrib', timings.Maghrib, 'fa-moon')}
             ${createPrayerCard('Isha', timings.Isha, 'fa-star')}
-        </div>
-    `;
-
-    highlightNextPrayer(timings);
+        `;
+        highlightNextPrayer(timings);
+    }
 }
 
 function createPrayerCard(name, time, icon) {

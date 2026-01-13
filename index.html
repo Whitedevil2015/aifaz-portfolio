@@ -201,48 +201,25 @@
 
     <!-- Prayer Times Section -->
     <section id="prayer-times" class="portal-section">
-        <div class="container">
+        <div class="container prayer-container">
             <div class="section-header">
-                <h2 class="section-title">Prayer & Reflection</h2>
-                <p class="section-subtitle">Establish Prayer for Remembrance</p>
+                <h2 class="section-title">Prayer Times</h2>
+                <p class="section-subtitle">Auto-detected or Manual Search</p>
             </div>
 
-            <div class="location-controls">
-                <input type="text" id="city-input" placeholder="City (e.g. Mecca)">
-                <input type="text" id="country-input" placeholder="Country (e.g. Saudi Arabia)">
-                <input type="date" id="date-picker">
-                <button id="update-location-btn">Update Location</button>
+            <!-- Manual Location Search -->
+            <div class="prayer-search-box" style="max-width:500px; margin: 0 auto 2rem auto; display:flex; gap:10px;">
+                <input type="text" id="prayer-city" placeholder="City (e.g. London)" class="form-input"
+                    style="flex:1; padding:0.8rem; border-radius:8px; border:1px solid #ddd;">
+                <input type="text" id="prayer-country" placeholder="Country" class="form-input"
+                    style="flex:1; padding:0.8rem; border-radius:8px; border:1px solid #ddd;">
+                <button id="prayer-search-btn" class="btn btn-primary"
+                    style="background:var(--primary-color); color:white; border:none; padding:0.8rem 1.5rem; border-radius:8px; cursor:pointer;">Search</button>
             </div>
 
-            <div id="location-display" style="text-align:center; margin-bottom: 2rem; color: var(--text-light);"></div>
-
-            <div class="prayer-grid">
-                <div class="prayer-card">
-                    <span class="prayer-name">Fajr</span>
-                    <span class="prayer-time" id="time-fajr">--:--</span>
-                </div>
-                <div class="prayer-card">
-                    <span class="prayer-name">Dhuhr</span>
-                    <span class="prayer-time" id="time-dhuhr">--:--</span>
-                </div>
-                <div class="prayer-card">
-                    <span class="prayer-name">Asr</span>
-                    <span class="prayer-time" id="time-asr">--:--</span>
-                </div>
-                <div class="prayer-card">
-                    <span class="prayer-name">Maghrib</span>
-                    <span class="prayer-time" id="time-maghrib">--:--</span>
-                </div>
-                <div class="prayer-card">
-                    <span class="prayer-name">Isha</span>
-                    <span class="prayer-time" id="time-isha">--:--</span>
-                </div>
-            </div>
-
-            <div style="margin-top: 3rem; text-align:center;">
-                <button id="play-azaan-btn" class="btn btn-secondary"><i class="fas fa-mosque"></i> Play Azaan
-                    (Makkah)</button>
-                <audio id="azaan-audio" src="https://www.islamcan.com/audio/adhan/azan2.mp3"></audio>
+            <!-- Grid container will be populated by JS -->
+            <div class="prayer-grid-modern" id="prayer-times-grid">
+                <!-- JS will inject cards here -->
             </div>
         </div>
     </section>
